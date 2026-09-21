@@ -118,9 +118,9 @@
     animation: riseIn .9s ease-out .8s forwards;
   }
   .hero h1{
-    font-size: clamp(40px, 9vw, 76px);
+    font-size: clamp(32px, 6.4vw, 56px);
     font-weight:700;
-    line-height:1.18;
+    line-height:1.2;
     margin: 20px 0 26px;
     letter-spacing:-.01em;
     opacity:0;
@@ -140,9 +140,13 @@
     to{ opacity:1; transform:translateY(0);}
   }
   .hero-scroll{
-    position:absolute; bottom: 42px; left:50%; transform:translateX(-50%);
+    position:absolute; bottom: 48px; left:0; right:0;
+    padding: 0 24px;
     font-family:'Noto Sans KR', sans-serif;
-    font-size:12px; letter-spacing:.2em; color:var(--ink-faint);
+    font-size: clamp(17px, 4.4vw, 21px); font-weight:500; letter-spacing:.05em; color:var(--ember);
+    text-align:center;
+    word-break: keep-all;
+    white-space: normal;
     display:flex; flex-direction:column; align-items:center; gap:10px;
     opacity:0;
     animation: riseIn 1s ease-out 1.9s forwards;
@@ -173,13 +177,15 @@
     letter-spacing:.24em;
     color: var(--ember);
     margin-bottom: 14px;
+    text-align:center;
   }
   h2.title{
-    font-size: clamp(25px, 4vw, 32px);
-    line-height:1.42;
-    font-weight:600;
+    font-size: clamp(25px, 5vw, 37px);
+    line-height:1.36;
+    font-weight:800;
     margin: 0 0 34px;
     color: var(--ink);
+    text-align:center;
     border-bottom: 1px solid var(--rule-soft);
     padding-bottom: 22px;
   }
