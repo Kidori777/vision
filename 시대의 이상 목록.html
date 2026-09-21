@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시대의 이상 — 시리즈 목록</title>
+<meta name="description" content="시대의 이상 3부작: 하나님의 경륜의 이상, 주님을 섬기는 자의 이상, 현재 주의 회복의 이상과 실행">
+<meta property="og:title" content="시대의 이상 — 시리즈 목록">
+<meta property="og:description" content="하나님의 경륜의 이상, 주님을 섬기는 자의 이상, 현재 주의 회복의 이상과 실행 — 세 편으로 이어지는 이상의 불씨">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#1c1410;
+    --bg-1:#241a14;
+    --bg-2:#2c2018;
+    --ember-1:#f0a648;
+    --ember-2:#d9791f;
+    --ember-3:#8c4a1a;
+    --ember-glow:#ffcf8a;
+    --text-main:#f3e9dd;
+    --text-dim:#c9b8a4;
+    --text-faint:#9c8a76;
+    --line:#4a3b2c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(240,166,72,0.08), transparent 55%),
+      radial-gradient(ellipse at 85% 15%, rgba(217,121,31,0.06), transparent 50%),
+      linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-0) 100%);
+    color:var(--text-main);
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:300;
+    line-height:1.8;
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+  #embers{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.5;}
+
+  .wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  header.hero{
+    padding:110px 0 90px;
+    text-align:center;
+    position:relative;
+  }
+  .kicker{
+    font-family:'Noto Sans KR',sans-serif;
+    font-weight:500;
+    font-size:13px;
+    letter-spacing:0.45em;
+    color:var(--ember-1);
+    text-transform:uppercase;
+    margin-bottom:26px;
+    opacity:0;
+    animation:fadeUp 1s ease forwards 0.1s;
+  }
+  h1.title{
+    font-family:'Noto Serif KR', serif;
+    font-weight:900;
+    font-size:clamp(40px,8vw,74px);
+    letter-spacing:0.02em;
+    background:linear-gradient(120deg, var(--ember-glow) 0%, var(--ember-1) 45%, var(--ember-3) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    line-height:1.25;
+    opacity:0;
+    animation:fadeUp 1.1s ease forwards 0.3s;
+  }
+  .hero-sub{
+    margin-top:28px;
+    font-size:16px;
+    color:var(--text-dim);
+    font-weight:300;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+    opacity:0;
+    animation:fadeUp 1.1s ease forwards 0.55s;
+  }
+  .hero-verse{
+    margin-top:22px;
+    font-family:'Noto Serif KR',serif;
+    font-size:14px;
+    color:var(--text-faint);
+    letter-spacing:0.02em;
+    opacity:0;
+    animation:fadeUp 1.1s ease forwards 0.75s;
+  }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(16px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  .flame-divider{
+    width:1px;height:64px;
+    margin:0 auto;
+    background:linear-gradient(180deg, transparent, var(--ember-1), transparent);
+    opacity:0.6;
+  }
+
+  /* SERIES LIST */
+  main{padding:20px 0 140px;}
+
+  .series-item{
+    position:relative;
+    border-top:1px solid var(--line);
+    padding:56px 0;
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.9s ease, transform 0.9s ease;
+  }
+  .series-item:last-child{border-bottom:1px solid var(--line);}
+  .series-item.visible{opacity:1;transform:translateY(0);}
+
+  .series-item a.card-link{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:28px;
+    align-items:start;
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .idx-num{
+    font-family:'Noto Serif KR',serif;
+    font-weight:700;
+    font-size:56px;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1.4px var(--ember-1);
+    opacity:0.65;
+    transition:opacity 0.4s ease, -webkit-text-stroke-color 0.4s ease, color 0.4s ease;
+    min-width:64px;
+  }
+
+  .series-body{min-width:0;}
+  .series-label{
+    font-size:12px;
+    letter-spacing:0.32em;
+    color:var(--ember-1);
+    text-transform:uppercase;
+    margin-bottom:10px;
+    font-weight:500;
+  }
+  h2.series-title{
+    font-family:'Noto Serif KR',serif;
+    font-weight:700;
+    font-size:clamp(22px,4vw,32px);
+    color:var(--text-main);
+    line-height:1.4;
+    margin-bottom:14px;
+    transition:color 0.35s ease;
+  }
+  .series-desc{
+    font-size:14.5px;
+    color:var(--text-dim);
+    max-width:560px;
+    font-weight:300;
+    line-height:1.85;
+  }
+
+  .go-mark{
+    align-self:center;
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ember-1);
+    font-size:18px;
+    transition:all 0.35s ease;
+    flex-shrink:0;
+  }
+
+  .series-item a.card-link:hover .idx-num{
+    opacity:1;
+    color:var(--ember-1);
+    -webkit-text-stroke:1.4px var(--ember-glow);
+  }
+  .series-item a.card-link:hover h2.series-title{
+    color:var(--ember-glow);
+  }
+  .series-item a.card-link:hover .go-mark{
+    background:var(--ember-1);
+    border-color:var(--ember-1);
+    color:#1c1410;
+    transform:translateX(4px);
+  }
+
+  /* subtle progress ember bar at top */
+  #progress{
+    position:fixed;top:0;left:0;height:2px;
+    background:linear-gradient(90deg, var(--ember-3), var(--ember-1), var(--ember-glow));
+    width:0%;
+    z-index:10;
+    transition:width 0.1s linear;
+  }
+
+  footer{
+    text-align:center;
+    padding:60px 24px 70px;
+    color:var(--text-faint);
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    position:relative;
+    z-index:1;
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:80px 0 60px;}
+    .series-item a.card-link{
+      grid-template-columns:auto 1fr;
+      row-gap:16px;
+    }
+    .go-mark{display:none;}
+    .idx-num{font-size:42px;min-width:48px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<canvas id="embers"></canvas>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">SERIES · 전 3편</div>
+    <h1 class="title">시대의 이상</h1>
+    <p class="hero-sub">한 세대에서 다음 세대로 건네지는 이상의 불씨 —<br>하나님의 경륜에서 시작되어, 오늘 우리의 실행에 이르기까지.</p>
+    <p class="hero-verse">"이상을 실행에 옮기지 아니하고 실행 없이 이 이상을 유전 받는 것은 무익합니다"</p>
+  </header>
+
+  <div class="flame-divider"></div>
+
+  <main>
+    <div class="series-item">
+      <a class="card-link" href="https://kidori777.github.io/vision/시대의 이상1.html">
+        <span class="idx-num">01</span>
+        <span class="series-body">
+          <span class="series-label">Part One</span>
+          <h2 class="series-title">하나님의 경륜의 이상</h2>
+          <p class="series-desc">모든 것의 출발점이 되는 이상 — 아담으로부터 시작되어 성경 전체를 관통하며 전해져 내려온, 하나님의 영원한 경륜에 대한 본래의 이상을 다룹니다.</p>
+        </span>
+        <span class="go-mark">&#8599;</span>
+      </a>
+    </div>
+
+    <div class="series-item">
+      <a class="card-link" href="https://kidori777.github.io/vision/시대의 이상2.html">
+        <span class="idx-num">02</span>
+        <span class="series-body">
+          <span class="series-label">Part Two</span>
+          <h2 class="series-title">주님을 섬기는 자의 이상</h2>
+          <p class="series-desc">아담부터 사도 요한에 이르기까지, 이 이상을 이어받아 지켜온 이들의 발자취와 그 이상을 흐리게 했던 여러 방해 요소들을 함께 조명합니다.</p>
+        </span>
+        <span class="go-mark">&#8599;</span>
+      </a>
+    </div>
+
+    <div class="series-item">
+      <a class="card-link" href="https://kidori777.github.io/vision/시대의 이상3.html">
+        <span class="idx-num">03</span>
+        <span class="series-body">
+          <span class="series-label">Part Three · Final</span>
+          <h2 class="series-title">현재 주의 회복의 이상과 실행</h2>
+          <p class="series-desc">산등성이를 넘어 전해지는 봉수처럼, 오늘 우리 시대에 이르러 회복된 이상이 무엇인지, 그리고 그것을 어떻게 실행에 옮길 것인지를 구체적으로 제시합니다.</p>
+        </span>
+        <span class="go-mark">&#8599;</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer>시대의 이상 · 전 3편</footer>
+
+<script>
+// scroll progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+// scroll reveal
+const items = document.querySelectorAll('.series-item');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+items.forEach(el => io.observe(el));
+
+// ember particle background (subtle, subordinate to content)
+const canvas = document.getElementById('embers');
+const ctx = canvas.getContext('2d');
+let w, h;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const colors = ['rgba(240,166,72,', 'rgba(217,121,31,', 'rgba(255,207,138,'];
+const particles = Array.from({length: 40}, () => ({
+  x: Math.random() * w,
+  y: h + Math.random() * h,
+  r: Math.random() * 1.8 + 0.4,
+  speed: Math.random() * 0.4 + 0.15,
+  drift: (Math.random() - 0.5) * 0.3,
+  alpha: Math.random() * 0.5 + 0.15,
+  color: colors[Math.floor(Math.random() * colors.length)]
+}));
+
+function animate(){
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => {
+    p.y -= p.speed;
+    p.x += p.drift;
+    if (p.y < -10) {
+      p.y = h + 10;
+      p.x = Math.random() * w;
+    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color + p.alpha + ')';
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
